@@ -3,9 +3,9 @@ import time
 # blinking function  
 def blink(pin):  
         GPIO.output(pin,GPIO.HIGH)  
-        time.sleep(1)  
+        time.sleep(0.3)  
         GPIO.output(pin,GPIO.LOW)  
-        time.sleep(1)  
+        time.sleep(0.3)  
         return
 
 def running():
@@ -17,6 +17,19 @@ def running():
 	time.sleep(1)
 	return
 
+def quickblink():
+	GPIO.output(40,GPIO.LOW)
+	GPIO.output(38,GPIO.LOW)
+	GPIO.output(35,GPIO.LOW)
+	GPIO.output(36,GPIO.LOW)
+	time.sleep(0.1)
+        GPIO.output(40,GPIO.HIGH)
+        GPIO.output(38,GPIO.HIGH)
+        GPIO.output(35,GPIO.HIGH)
+        GPIO.output(36,GPIO.HIGH)
+        time.sleep(0.1)
+        return
+
 
 # to use Raspberry Pi board pin numbers  
 GPIO.setmode(GPIO.BOARD)  
@@ -26,6 +39,12 @@ GPIO.setup(38, GPIO.OUT) #GREEN 2
 GPIO.setup(35, GPIO.OUT) #RED
 GPIO.setup(36, GPIO.OUT) #BLUE
   
+# intialize all leds low
+GPIO.output(40,GPIO.LOW)
+GPIO.output(38,GPIO.LOW)
+GPIO.output(35,GPIO.LOW)
+GPIO.output(36,GPIO.LOW)
+
 
 # blink GPIO21 50 times  
 for i in range(0,1):  
@@ -35,8 +54,12 @@ for i in range(0,1):
 	blink(36)
 
 
-for i in range(0,5):
+for i in range(0,4):
 	running()
+
+for i in range(0,20):
+        quickblink()
+
 
 GPIO.cleanup()   
 
