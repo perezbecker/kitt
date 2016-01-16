@@ -22,11 +22,13 @@ def quickblink():
 	GPIO.output(38,GPIO.LOW)
 	GPIO.output(35,GPIO.LOW)
 	GPIO.output(36,GPIO.LOW)
+        GPIO.output(18,GPIO.LOW)
 	time.sleep(0.1)
         GPIO.output(40,GPIO.HIGH)
         GPIO.output(38,GPIO.HIGH)
         GPIO.output(35,GPIO.HIGH)
         GPIO.output(36,GPIO.HIGH)
+	GPIO.output(18,GPIO.HIGH)
         time.sleep(0.1)
         return
 
@@ -37,14 +39,17 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(40, GPIO.OUT) #GREEN 1
 GPIO.setup(38, GPIO.OUT) #GREEN 2
 GPIO.setup(35, GPIO.OUT) #RED
-GPIO.setup(36, GPIO.OUT) #BLUE
+GPIO.setup(36, GPIO.OUT) #BLUE 1
+GPIO.setup(18, GPIO.OUT) #BLUE 2
   
 # intialize all leds low
 GPIO.output(40,GPIO.LOW)
 GPIO.output(38,GPIO.LOW)
+
+
 GPIO.output(35,GPIO.LOW)
 GPIO.output(36,GPIO.LOW)
-
+GPIO.output(18,GPIO.LOW)
 
 # blink GPIO21 50 times  
 for i in range(0,1):  
@@ -52,6 +57,7 @@ for i in range(0,1):
 	blink(38)
 	blink(35)
 	blink(36)
+	blink(18)
 
 
 for i in range(0,4):
@@ -68,6 +74,7 @@ GPIO.cleanup()
 #PIN 38, GPIO 20: Green LED 2
 
 #PIN 35, GPIO 19: Red LED 
-#PIN 36, GPIO 16: Blue LED 
+#PIN 36, GPIO 16: Blue LED 1
+#PIN 18, GPIO 24: Blue LED 2 
 
 
