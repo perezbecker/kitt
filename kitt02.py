@@ -44,6 +44,9 @@ AorB=0
 def my_callback(channel): 
 	if GPIO.input(33):     # if port 25 == 1  
 		print "Hall"
+		GPIO.output(35,GPIO.HIGH)
+		time.sleep(0.1)
+		GPIO.output(35,GPIO.LOW)
 	else:                  # if port 25 != 1  
 		pass  
 
