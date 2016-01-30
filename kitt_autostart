@@ -1,0 +1,11 @@
+#!/bin/bash
+
+sudo mount /dev/sda1 /mnt/usb
+sudo gpsd /dev/ttyAMA0 -F /var/run/gpsd.sock
+
+sudo python /home/pi/kitt/kitthr.py &
+sudo python /home/pi/kitt/kitt06nh.py
+sudo sleep 60
+sudo shutdown -h now
+
+
