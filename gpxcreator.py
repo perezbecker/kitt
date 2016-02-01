@@ -1,6 +1,7 @@
 import gpxpy 
 import gpxpy.gpx
 import datetime
+import sys
 
 gpx = gpxpy.gpx.GPX() 
 
@@ -14,7 +15,7 @@ gpx.tracks.append(gpx_track)
 gpx_segment = gpxpy.gpx.GPXTrackSegment() 
 gpx_track.segments.append(gpx_segment) 
 
-FileToConvert = open("/Volumes/32GB-B/kittlogs/2016-01-19_01-43.txt", 'r')
+FileToConvert = open("/mnt/usb/kittlogs/"+sys.argv[1]+".txt", 'r')
 
 for line in FileToConvert:
     data = line.split()
@@ -33,20 +34,20 @@ for line in FileToConvert:
 
 FileToConvert.close()
 
-print 'Created GPX'
+print 'Created GPX for ride '+sys.argv[1]
 
-Output = open('/Volumes/32GB-B/kittlogs/2016-01-19_01-45.gpx', 'w')
+Output = open('/mnt/usb/kittlogs/'+sys.argv[1]+'.gpx', 'w')
 Output.write(gpx.to_xml())
 Output.close()
 
 replacements = {'speed':'hr', 'gpx.py -- https://github.com/tkrajina/gpxpy': "KITT with Barometer"}
 lines = []
-with open('/Volumes/32GB-B/kittlogs/2016-01-19_01-45.gpx') as infile:
+with open('/mnt/usb/kittlogs/'+sys.argv[1]+'.gpx') as infile:
     for line in infile:
         for src, target in replacements.iteritems():
             line = line.replace(src, target)
         lines.append(line)
-with open('/Volumes/32GB-B/kittlogs/2016-01-19_01-45.gpx', 'w') as outfile:
+with open('/mnt/usb/kittlogs/'+sys.argv[1]+'.gpx', 'w') as outfile:
     for line in lines:
         outfile.write(line)
 outfile.close()

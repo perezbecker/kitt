@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if ps -ef | grep -v grep | grep kitthr.py ; then
+	exit 0
+else
+
+	sudo python /home/pi/kitt/kitthr.py > /dev/null 2>&1
+	exit 0
+fi
+
+
