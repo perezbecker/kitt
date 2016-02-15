@@ -49,6 +49,6 @@ class WheelEncoder:
 
   def event_callback(self,channel):
     self.ticks += 1
-    GPIO.output(36,GPIO.HIGH)
-    time.sleep(0.1)
-    GPIO.output(36,GPIO.LOW)
+    #GPIO.output(36,GPIO.HIGH)
+    #time.sleep(0.1)
+    #GPIO.output(36,GPIO.LOW)

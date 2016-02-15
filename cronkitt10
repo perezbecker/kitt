@@ -2,11 +2,11 @@
 
 sleep 10
 
-if ps -ef | grep -v grep | grep kitt07nh.py ; then
+if ps -ef | grep -v grep | grep kitt07.py ; then
 	exit 0
 else
 
-	sudo python /home/pi/kitt/kitt07nh.py > /dev/null 2>&1
+	sudo python /home/pi/kitt/kitt07.py > /dev/null 2>&1
 	exit 0
 fi
 

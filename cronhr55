@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sleep 55
+
 if ps -ef | grep -v grep | grep kitthr.py ; then
 	exit 0
 else

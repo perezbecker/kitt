@@ -70,7 +70,6 @@ TicksNow = 0
 Ticks1sAgo = 0
 Ticks2sAgo = 0
 Ticks3sAgo = 0
-Ticks4sAgo = 0
 Recording = 0
 
 LedRunningA()
@@ -108,23 +107,24 @@ while ButtonOff == 0:
 		    hr = int(hrsplit[0])
 	            GPIO.output(35,GPIO.LOW)
 
-		print report.time, report.lat, report.lon, report.alt, report.track, report.speed, report.climb, \
-		'Altitude = {0:0.2f} m'.format(sensor.read_altitude()), 'Temp = {0:0.2f} *C'.format(sensor.read_temperature()), \
-		'Pressure = {0:0.2f} Pa'.format(sensor.read_pressure()), 'Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure()), \
-		"HAL:", halldata.getTicks(), "BUT:", buttondata.getTicks(),"HR:", hr, "REC:", Recording
+		#print report.time, report.lat, report.lon, report.alt, report.track, report.speed, report.climb, \
+		#'Altitude = {0:0.2f} m'.format(sensor.read_altitude()), 'Temp = {0:0.2f} *C'.format(sensor.read_temperature()), \
+		#'Pressure = {0:0.2f} Pa'.format(sensor.read_pressure()), 'Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure()), \
+		#"HAL:", halldata.getTicks(), "BUT:", buttondata.getTicks(),"HR:", hr, "REC:", Recording
 
 
-		Ticks4sAgo = Ticks3sAgo
 		Ticks3sAgo = Ticks2sAgo
 		Ticks2sAgo = Ticks1sAgo
 		Ticks1sAgo = TicksNow
 		TicksNow = halldata.getTicks()
 		
-		if(TicksNow-Ticks4sAgo = 0):
+		if(TicksNow-Ticks3sAgo == 0):
 			Recording = 0
-		
+			GPIO.output(36,GPIO.HIGH)	
+	
 		else:
 			Recording = 1
+			GPIO.output(36,GPIO.LOW)
 			print >> output, report.time, report.lat, report.lon, report.alt, report.track, report.speed, report.climb, \
                 	'{0:0.2f}'.format(sensor.read_altitude()), '{0:0.2f}'.format(sensor.read_temperature()), \
                 	'{0:0.2f}'.format(sensor.read_pressure()), '{0:0.2f}'.format(sensor.read_sealevel_pressure()), \
