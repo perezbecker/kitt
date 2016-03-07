@@ -82,7 +82,7 @@ ButtonPress2sAgo = 0
 ButtonPress3sAgo = 0
 
 
-output = open('/mnt/usb/kittlogs/'+datetime.datetime.utcnow().strftime('%Y-%m-%d_%H-%M')+'.txt','a')
+output = open('/mnt/usb/kittlogs/'+datetime.datetime.now().strftime('%Y-%m-%d_%H-%M')+'.txt','a')
 
 while ButtonOff == 0:
     try:
