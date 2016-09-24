@@ -7,7 +7,7 @@ import ButtonClass
 import datetime
 import os
 
-sensor = BMP085.BMP085(mode=BMP085.BMP085_STANDARD)
+sensor = BMP085.BMP085(mode=BMP085.BMP085_ULTRAHIGHRES)
 
 
 def LedRunningA():

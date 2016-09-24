@@ -19,7 +19,7 @@ FileToConvert = open("/mnt/usb/kittlogs/"+sys.argv[1]+".txt", 'r')
 
 for line in FileToConvert:
     data = line.split()
-    dateandtime = datetime.datetime.strptime(data[0], '%Y-%m-%dT%H:%M:%S.000Z')
+    dateandtime = datetime.datetime.strptime(data[0], '%Y-%m-%dT%H:%M:%S.%fZ')
     lat = float(data[1])
     lon = float(data[2])
     #alt = '{0:0.2f}'.format(float(data[7])*meters_to_feet)
