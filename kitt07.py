@@ -127,7 +127,7 @@ while ButtonOff == 0:
 		if(HallSensorPresent and TicksNow-Ticks3sAgo == 0):
 			Recording = 0
 			GPIO.output(36,GPIO.HIGH)	
-	
+
 		else:
 			Recording = 1
 			GPIO.output(36,GPIO.LOW)
@@ -138,10 +138,10 @@ while ButtonOff == 0:
 			if AorB == 0:
 				LedRunningA()
 				AorB = 1
-            elif AorB ==1:
+			elif AorB == 1:
 				LedRunningB()
 				AorB = 0
-		
+
 		ButtonPress3sAgo = ButtonPress2sAgo
 		ButtonPress2sAgo = ButtonPress1sAgo
 		ButtonPress1sAgo = ButtonPressNow
