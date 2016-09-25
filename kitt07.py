@@ -7,6 +7,7 @@ import ButtonClass
 import datetime
 import os
 
+
 sensor = BMP085.BMP085(mode=BMP085.BMP085_STANDARD)
 
 
@@ -72,6 +73,8 @@ Ticks2sAgo = 0
 Ticks3sAgo = 0
 Recording = 0
 
+HallSensorPresent = False
+
 LedRunningA()
 ButtonOff = 0
 
@@ -118,7 +121,10 @@ while ButtonOff == 0:
 		Ticks1sAgo = TicksNow
 		TicksNow = halldata.getTicks()
 		
-		if(TicksNow-Ticks3sAgo > 0):
+		if(TicksNow > 1):
+		    HallSensorPresent = True
+
+		if(HallSensorPresent and TicksNow-Ticks3sAgo == 0):
 			Recording = 0
 			GPIO.output(36,GPIO.HIGH)	
 	
@@ -132,7 +138,7 @@ while ButtonOff == 0:
 			if AorB == 0:
 				LedRunningA()
 				AorB = 1
-                	elif AorB ==1:
+            elif AorB ==1:
 				LedRunningB()
 				AorB = 0
 		
