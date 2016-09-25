@@ -3,6 +3,5 @@
 sudo python /home/pi/kitt/gpxcreator.py $1
 sudo mv /mnt/usb/kittlogs/$1.txt /mnt/usb/kittlogs/archive/
 sudo mv /mnt/usb/kittlogs/$1.gpx /mnt/usb/kittlogs/archive/
-sudo scp /mnt/usb/kittlogs/archive/$1.txt danok@nyx:~/Documents/bike/tours/k-raw/
-sudo scp /mnt/usb/kittlogs/archive/$1.gpx danok@nyx:~/Documents/bike/tours/k-gpx/
+sudo scp /mnt/usb/kittlogs/archive/$1.* danok@nyx:~/Documents/bike/tours/
 
