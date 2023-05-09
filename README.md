@@ -6,7 +6,7 @@ KITT is a Raspberry-Pi-based cycling GPS logger based on [Adafruit's Ultimate GP
 
 ### Servicing
 
-* _Raspberry Pi_ - If Rasperry Pi 2 fails, replace with a Raspberry Pi 2B **v1.1** only! Raspberry Pi v1.2 and more recent version will not work, as disk image is based on Raspbian Wheezy, which will not work on these models.   
+* _Raspberry Pi_ - If Rasperry Pi 2 fails, replace with a Raspberry Pi 2B **v1.1** only! Raspberry Pi 2B v1.2 and more recent version will not work, as disk image is based on Raspbian Wheezy, which will not work on these models.
  * _SD Card_ - If SD Card needs to be replaced, flash the disk image `kitt_2021-05-03.img` onto a new 8 GB micro SD Card and use directly in Pi. 
  * _KITT Board_ - A replacement Adafruit board is in your electronics box. Use that one to recreate it. 
  * _Battery_ - Connection between battery and USB cable will get finicky after a while from the contant bouncing. This can be noticed in the red power LED in the Rasbperry Pi not being continously lit. After verifying that it is not the USB connection between the cable and the Raspberry Pi, replace the battery with a new one.
